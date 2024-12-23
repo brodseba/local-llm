@@ -1,0 +1,82 @@
+services:
+  ollama:
+    container_name: local-llm-ollama
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    expose:
+      - "11434"
+    volumes:
+      - ./ollama:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - backend
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  open-webui:
+    container_name: local-llm-open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./open-webui-backend:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - DEFAULT_LOCALE=en
+      - USE_CUDA_DOCKER=True
+    networks: 
+      - backend
+      - frontend
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  nginx:
+    container_name: local-llm-reverse-proxy
+    image: nginx:alpine
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d          # Mount conf.d directory
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Mount the main config if needed (less common)
+    depends_on:
+      - open-webui
+    restart: unless-stopped
+    networks:
+      frontend:
+         ipv4_address: 172.16.238.10
+
+  tunnel:
+    container_name: local-llm-cloudflared-tunnel
+    hostname: ai.un-autre-geek.com
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    depends_on:
+      - nginx
+    networks:
+      frontend:
+        ipv4_address: 172.16.238.20
+
+networks:
+  frontend:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
+  backend:

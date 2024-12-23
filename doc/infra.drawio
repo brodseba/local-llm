@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="3dHNCgCtmvhTfCOVqRUx" name="Page-1">
+        <mxGraphModel dx="1729" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Frontend" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[1,1,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];rounded=1;absoluteArcSize=1;arcSize=2;html=1;strokeColor=none;gradientColor=none;shadow=0;dashed=0;fontSize=12;fontColor=#9E9E9E;align=left;verticalAlign=top;spacing=10;spacingTop=-4;fillColor=#E0F2F1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="760" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Backend" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[1,1,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];rounded=1;absoluteArcSize=1;arcSize=2;html=1;strokeColor=none;gradientColor=none;shadow=0;dashed=0;fontSize=12;fontColor=#9E9E9E;align=left;verticalAlign=top;spacing=10;spacingTop=-4;fillColor=#FFEBEE;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="760" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Ollama" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://ollama.com/public/assets/c889cc0d-cb83-4c46-a98e-0d0e273151b9/42f6b28d-9117-48cd-ac0d-44baaf5c178e.png;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="230" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Open WebUI" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;fontColor=#000000;image=https://avatars.githubusercontent.com/u/158137808?s=200&amp;v=4;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="230" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="NGINX&#10;(reverse-proxy)" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;fontColor=#000000;image=https://static-00.iconduck.com/assets.00/file-type-nginx-icon-1793x2048-yt5u3fm7.png;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="70" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Cloudflare Tunnel" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;fontColor=#000000;image=https://static-00.iconduck.com/assets.00/cloudflare-icon-2048x2048-wks6nchu.png;" vertex="1" parent="1">
+                    <mxGeometry x="535" y="77.5" width="85" height="85" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
